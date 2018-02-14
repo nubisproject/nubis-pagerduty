@@ -1,3 +1,6 @@
+# NOTE: Yeesh this is ugly and due to how terraform works
+#       credit to gozer for figuring this out
+
 output "service_id" {
 	value = "${element(compact(concat(pagerduty_service.service-critical.*.id, pagerduty_service.service-non-critical.*.id, list(""))), 0)}"
 }

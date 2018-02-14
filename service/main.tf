@@ -42,7 +42,6 @@ resource "pagerduty_service_integration" "integration-critical" {
   vendor  = "${data.pagerduty_vendor.integration.id}"
 }
 
-# Sets up integration with the service
 resource "pagerduty_service_integration" "integration-non-critical" {
   count   = "${var.create_service_critical ? 0 : 1}"
   name    = "${data.pagerduty_vendor.integration.name}"
