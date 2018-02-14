@@ -1,7 +1,9 @@
 # nubis-pagerduty
-This is a pagerduty module, you will need to first get an API token to make this work. Warning WIP in module
+This is a pagerduty module, you will need to first get an API token to make this work. Warning WIP in module.
+More documents in each module folder
 
 ## Modules
  * teams - Creates a team based on user you input, users need to exist in pagerduty first
+ * service - Creates a pagerduty service
  * service-critical - Creates a critical service
  * service-non-critical - Creates a non critical service in pagerduty
