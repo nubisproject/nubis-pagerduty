@@ -7,7 +7,7 @@ data "pagerduty_escalation_policy" "escalation_policy" {
 }
 
 resource "pagerduty_service" "service-critical" {
-  count                   = "${var.create_service_critical ? 1 : 0}"
+  count                   = "${var.enable_pagerduty ? 1 : 0}"
   name                    = "nubis-${var.team_name}-${var.service_name}-critical"
   description             = "Managed by terraform - service nubis-${var.team_name}-${var.service_name}-critical"
   auto_resolve_timeout    = "${var.auto_resolve_timeout_critical}"
@@ -21,7 +21,7 @@ resource "pagerduty_service" "service-critical" {
 }
 
 resource "pagerduty_service" "service-non-critical" {
-  count                   = "${var.create_service_critical ? 0 : 1}"
+  count                   = "${var.enable_pagerduty ? 1 : 0}"
   name                    = "nubis-${var.team_name}-${var.service_name}-non-critical"
   description             = "Managed by terraform - service nubis-${var.team_name}-${var.service_name}-non-critical"
   auto_resolve_timeout    = "${var.auto_resolve_timeout_non_critical}"
@@ -36,14 +36,14 @@ resource "pagerduty_service" "service-non-critical" {
 
 # Sets up integration with the service
 resource "pagerduty_service_integration" "integration-critical" {
-  count   = "${var.create_service_critical ? 1 : 0}"
+  count   = "${var.enable_pagerduty ? 1 : 0}"
   name    = "${data.pagerduty_vendor.integration.name}"
   service = "${pagerduty_service.service-critical.id}"
   vendor  = "${data.pagerduty_vendor.integration.id}"
 }
 
 resource "pagerduty_service_integration" "integration-non-critical" {
-  count   = "${var.create_service_critical ? 0 : 1}"
+  count   = "${var.enable_pagerduty ? 1 : 0}"
   name    = "${data.pagerduty_vendor.integration.name}"
   service = "${pagerduty_service.service-non-critical.id}"
   vendor  = "${data.pagerduty_vendor.integration.id}"
