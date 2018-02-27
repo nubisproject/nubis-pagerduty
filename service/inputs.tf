@@ -3,7 +3,7 @@ variable "create_service_critical" {
 }
 
 variable "integration" {
-  default   = "prometheus"
+  default = "prometheus"
 }
 
 variable "team_name" {
@@ -29,6 +29,5 @@ variable "auto_resolve_timeout_non_critical" {
 variable "acknowledgement_timeout_non_critical" {
   default = "14400"
 }
-variable "escalation_policy_name" {
 
-}
+variable "escalation_policy_name" {}

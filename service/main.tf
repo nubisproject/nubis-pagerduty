@@ -1,9 +1,9 @@
 data "pagerduty_vendor" "integration" {
-  name  = "${var.integration}"
+  name = "${var.integration}"
 }
 
 data "pagerduty_escalation_policy" "escalation_policy" {
-  name  = "${var.escalation_policy_name}"
+  name = "${var.escalation_policy_name}"
 }
 
 resource "pagerduty_service" "service-critical" {
