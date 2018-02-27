@@ -1,4 +1,4 @@
-variable "create_service_critical" {
+variable "enable_pagerduty" {
   default = false
 }
 
@@ -30,4 +30,6 @@ variable "acknowledgement_timeout_non_critical" {
   default = "14400"
 }
 
-variable "escalation_policy_name" {}
+variable "escalation_policy_name" {
+  default = "nubis"
+}
