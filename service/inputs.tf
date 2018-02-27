@@ -30,6 +30,10 @@ variable "acknowledgement_timeout_non_critical" {
   default = "14400"
 }
 
-variable "escalation_policy_name" {
+variable "escalation_policy_name_critical" {
+  default = "nubis"
+}
+
+variable "escalation_policy_name_non_critical" {
   default = "nubis"
 }
