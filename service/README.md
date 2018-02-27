@@ -24,7 +24,8 @@ Inputs:
 * `enable_pagerduty`: Enables pagerduty service. This defaults to `false`
 * `team_name`: Name of your team, example: webops, voice. This defaults to `team`
 * `service_name`: Just an identifier, should just use either `application` or `platform`
-* `escalation_policy_name`: Name of your escalation policy
+* `escalation_policy_name_critical`: Name of your escalation policy
+* `escalation_policy_name_non_critical`: Name of your escalation policy
 * `integration`: The name of the integration, defaults to `prometheus`
 
 Outputs:
