@@ -11,10 +11,8 @@ resource "pagerduty_team" "team" {
 }
 
 resource "pagerduty_team_membership" "team_member" {
-
-  count   = "${length(var.pagerduty_users)}"
+  count = "${length(var.pagerduty_users)}"
 
   user_id = "${element(data.pagerduty_user.me.*.id, count.index)}"
   team_id = "${pagerduty_team.team.id}"
-
 }

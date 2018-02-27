@@ -1,7 +1,9 @@
 # Teams
+
 Just creates a team, doesn't do much
 
 ## Usage
+
 Example:
 
 ```bash
