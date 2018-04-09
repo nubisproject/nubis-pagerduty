@@ -6,9 +6,7 @@ variable "integration" {
   default = "prometheus"
 }
 
-variable "team_name" {
-  default = "team"
-}
+variable "team_name" {}
 
 variable "service_name" {
   default = "platform"
