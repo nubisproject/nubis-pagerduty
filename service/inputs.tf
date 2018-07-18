@@ -6,9 +6,7 @@ variable "integration" {
   default = "prometheus"
 }
 
-variable "team_name" {
-  default = "team"
-}
+variable "team_name" {}
 
 variable "service_name" {
   default = "platform"
@@ -30,6 +28,10 @@ variable "acknowledgement_timeout_non_critical" {
   default = "14400"
 }
 
-variable "escalation_policy_name" {
+variable "escalation_policy_critical" {
+  default = "nubis"
+}
+
+variable "escalation_policy_non_critical" {
   default = "nubis"
 }

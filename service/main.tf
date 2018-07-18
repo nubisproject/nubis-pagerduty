@@ -2,8 +2,12 @@ data "pagerduty_vendor" "integration" {
   name = "${var.integration}"
 }
 
-data "pagerduty_escalation_policy" "escalation_policy" {
-  name = "${var.escalation_policy_name}"
+data "pagerduty_escalation_policy" "escalation_policy_critical" {
+  name = "${var.escalation_policy_critical}"
+}
+
+data "pagerduty_escalation_policy" "escalation_policy_non_critical" {
+  name = "${var.escalation_policy_non_critical}"
 }
 
 resource "pagerduty_service" "service-critical" {
@@ -12,7 +16,7 @@ resource "pagerduty_service" "service-critical" {
   description             = "Managed by terraform - service nubis-${var.team_name}-${var.service_name}-critical"
   auto_resolve_timeout    = "${var.auto_resolve_timeout_critical}"
   acknowledgement_timeout = "${var.acknowledgement_timeout_critical}"
-  escalation_policy       = "${data.pagerduty_escalation_policy.escalation_policy.id}"
+  escalation_policy       = "${data.pagerduty_escalation_policy.escalation_policy_critical.id}"
 
   incident_urgency_rule {
     type    = "constant"
@@ -26,7 +30,7 @@ resource "pagerduty_service" "service-non-critical" {
   description             = "Managed by terraform - service nubis-${var.team_name}-${var.service_name}-non-critical"
   auto_resolve_timeout    = "${var.auto_resolve_timeout_non_critical}"
   acknowledgement_timeout = "${var.acknowledgement_timeout_non_critical}"
-  escalation_policy       = "${data.pagerduty_escalation_policy.escalation_policy.id}"
+  escalation_policy       = "${data.pagerduty_escalation_policy.escalation_policy_non_critical.id}"
 
   incident_urgency_rule {
     type    = "constant"
